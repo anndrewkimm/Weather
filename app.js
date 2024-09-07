@@ -26,7 +26,7 @@ function getWeather() {
     return;
   }
 
-  const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
 
   document.getElementById('loading').style.display = 'block';
 
@@ -42,7 +42,7 @@ function getWeather() {
       const lat = data.coord.lat;
       const lng = data.coord.lon;
       const description = data.weather[0].description;
-      const icon = `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
+      const icon = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
 
       document.getElementById('temp').innerText = `Temperature in ${city}: ${temp}°F`;
       document.getElementById('weatherDetails').innerText = `Description: ${description}`;
@@ -74,7 +74,7 @@ function getCurrentLocation() {
       const lat = position.coords.latitude;
       const lng = position.coords.longitude;
       initMap(lat, lng);
-      const url = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${apiKey}&units=imperial`;
+      const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${apiKey}&units=imperial`;
 
       fetch(url)
         .then(response => response.json())
@@ -82,7 +82,7 @@ function getCurrentLocation() {
           const temp = data.main.temp;
           const city = data.name;
           const description = data.weather[0].description;
-          const icon = `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
+          const icon = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
 
           document.getElementById('temp').innerText = `Temperature in ${city}: ${temp}°F`;
           document.getElementById('weatherDetails').innerText = `Description: ${description}`;
